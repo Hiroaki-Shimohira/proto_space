@@ -1,30 +1,32 @@
 == README
 #prototype
 ##association
-- has_many :captureimages, likes, coments  
-- belongs_to :user
+- has_many :capture_images, likes, comments  
+- belongs_to :user  
 ##table
 - catchcopy  
 - concept  
 - user_id  
 
-#coment
+#comment
 ##association
-- belogs_to :user, prototype,
-## table
+- belogs_to :user, prototype  
+##table
 - content  
 - user_id  
-- prototype_id
+- prototype_id  
 
-#captureimage
+#capture_image
 ##association
-- belongs_to :prototype
+- belongs_to :prototype  
 ##table
-- prototype_id
+- prototype_id  
+- main_image  
+- sub_image  
 
 #likes
 ##association
-- belongs_to :prototype
+- belongs_to :prototype  
 ##table
 - user_id  
 - prototype_id
@@ -32,7 +34,7 @@
 #user
 ##association
 - has_many :prototypes  
-- has_many :coments
+- has_many :comments  
 ##table
 - member  
 - profile  
@@ -41,5 +43,4 @@
 - email  
 - password  
 - nickname  
-
 
