@@ -6,6 +6,7 @@
 - belongs_to :user  
 
 ##culumns
+- title  
 - catchcopy  
 - concept  
 - user_id  
@@ -26,6 +27,7 @@
 - belongs_to :prototype  
 
 ##culumns
+- image  
 - prototype_id  
 - status  
 
