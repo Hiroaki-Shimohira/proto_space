@@ -41,3 +41,5 @@
 - email  
 - password  
 - nickname  
+
+
