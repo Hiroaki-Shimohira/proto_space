@@ -21,20 +21,18 @@
 - belongs_to :prototype  
 ##table
 - prototype_id  
-- main_image  
-- sub_image  
+- status  
 
-#likes
+#like
 ##association
-- belongs_to :prototype  
+- belongs_to :prototype, :user  
 ##table
 - user_id  
-- prototype_id
+- prototype_id  
 
 #user
 ##association
-- has_many :prototypes  
-- has_many :comments  
+- has_many :prototypes, comments, likes  
 ##table
 - member  
 - profile  
