@@ -11,7 +11,7 @@
       %ul.nav.navbar-nav.navbar-right
         %li
           .btn.btn-primary.navbar-btn
-            %a{href: "/users/sign_in"}
+            / %a{href: "/users/sign_in"}
             = link_to 'Get Started', new_user_session_path
       //login
       %ul.nav.navbar-nav.navbar-right
@@ -22,8 +22,10 @@
           %ul.dropdown-menu{role: "menu"}
             %li
               %a{href: "#"} Profile Edit
+              / = link_to "Profile Edit"
             %li
-              %a{href: "#"} Logout
+              / %a{href: "#"} Logout
+              = link_to "Logout", destroy_user_session_path, method: :delete
         %li
           .btn.btn-primary.navbar-btn
             %a{href: "/proto/new"}
