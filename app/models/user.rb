@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+	has_many :prototypes
 
 	validates :nickname, presence: true
   # Include default devise modules. Others available are:
