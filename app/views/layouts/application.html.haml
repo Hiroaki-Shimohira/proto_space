@@ -8,5 +8,8 @@
     = csrf_meta_tags
   %body
     = render "layouts/header"
+    - flash.each do |key, value|
+      - key == "notice" ? key = "info" : key = "alert"
+      = content_tag :div, value, class: "alert alert-#{key}"
     = yield
     = render "layouts/footer"
