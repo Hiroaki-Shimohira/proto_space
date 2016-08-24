@@ -9,8 +9,13 @@ class PrototypesController < ApplicationController
 	def create
 		binding.pry
 		Prototype.create(create_params)
+
 	end
 	private
 	def create_params
+		params.require(:prototype).permit(:title, :catchcopy, :concept)
+	end
+	def image_params
+		params.require(:capture_image).permit(:image)
 	end
 end
