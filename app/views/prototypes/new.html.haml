@@ -5,24 +5,31 @@
         .col-md-12
           = f.text_field :title, placeholder: "Title", class:"proto-new-title"
       .row
-        = f.fields_for @prototype.capture_images do |af|
+        = f.fields_for :capture_images do |af|
           .col-md-12
             .cover-image-upload
               / %input{type: "file"}/
               =af.file_field :image
+              =af.hidden_field :satus, value: "main_image"
           .col-md-12
             %ul.proto-sub-list.list-group
               %li.list-group-item.col-md-4
                 .image-upload
-                  / %input{type: "file"}/
-                  =af.file_field :image
+                  = f.fields_for :capture_images do |af|
+                    = af.file_field :image
+                    = af.hidden_field :satus, value: "sub_image"
               %li.list-group-item.col-md-4
                 .image-upload
                   / %input{type: "file"}/
-                  =af.file_field :image
+                  = f.fields_for :capture_images do |af|
+                    = af.file_field :image
+                    = af.hidden_field :satus, value: "sub_image"
               %li.list-group-item.col-md-4
                 .image-upload-plus
                   %span +
+                  = f.fields_for :capture_images do |af|
+                    = af.file_field :image
+                    = af.hidden_field :satus, value: "sub_image"
       .row.proto-description
         .col-md-12
           / %input{type: "text", placeholder: "Catch Copy"}/
@@ -32,16 +39,16 @@
           =f.text_area :concept, cols: "30", rows: "4", placeholder: "Concept"
         .col-md-12
           %h4 Tag List
-            .row
-              .col-md-3
-                %input{type: "text", placeholder: "Web Design"}/
-                / =f.text_field :"", placeholder: "Web Design"
-              .col-md-3
-                %input{type: "text", placeholder: "UI"}/
-                / =f.text_field :"", placeholder: "UI"
-              .col-md-3
-                %input{type: "text", placeholder: "Application"}/
-                / =f.text_field :"", placeholder: "Application"
+          .row
+            .col-md-3
+              %input{type: "text", placeholder: "Web Design"}/
+              / =f.text_field :"", placeholder: "Web Design"
+            .col-md-3
+              %input{type: "text", placeholder: "UI"}/
+              / =f.text_field :"", placeholder: "UI"
+            .col-md-3
+              %input{type: "text", placeholder: "Application"}/
+              / =f.text_field :"", placeholder: "Application"
       .row.text-center.proto-btn
         .btn.btn-lg.btn-primary.btn-block
           =f.submit "Publish"
