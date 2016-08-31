@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
 	before_action :get_user, only: [:show, :edit]
 	def show
-		@user = User.find(params[id])
+		@user = User.find(params[:id])
+		@user_proto= @user.prototypes
 	end
 	def edit
 	end
