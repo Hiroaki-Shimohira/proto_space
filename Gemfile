@@ -50,4 +50,6 @@ gem 'bootstrap-sass'
 gem 'devise'
 gem 'pry-rails'
 gem 'carrierwave'
+gem 'kaminari'
+gem 'kaminari-bootstrap', '~> 3.0.1'
 
