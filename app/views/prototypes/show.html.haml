@@ -9,7 +9,6 @@
           %h4#top-aligned-media.media-heading
             =@prototype.title
           .proto-user
-            / %a{href: ""} by User
             =link_to "by #{@prototype.user.nickname}", user_path(@prototype.user)
             %span.degree
               ="#{@prototype.user.member},#{@prototype.user.works}"
@@ -27,10 +26,6 @@
         -3.times do
           %li.list-group-item
             = image_tag(@prototype.capture_images.sub_image.first.image, class: 'img-responsive')
-        / %li.list-group-item
-        /   = image_tag("sample.png", class: 'img-responsive')
-        / %li.list-group-item
-        /   = image_tag("sample.png", class: 'img-responsive')
   .row.proto-description
     .col-md-3
       %h4 Catch Copy
