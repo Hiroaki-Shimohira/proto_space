@@ -25,6 +25,12 @@ class PrototypesController < ApplicationController
 	end
 	def edit
 		@prototype = Prototype.find(params[:id])
+		@prototype.capture_images.build
+	end
+	def update
+		prototype = Prototype.find(params[:id])
+		prototype.update(prototype_params)
+    	redirect_to(root_path)
 	end
 	def destroy
 		prototype = Prototype.find(params[:id])
@@ -39,5 +45,8 @@ class PrototypesController < ApplicationController
 	private
 	def create_params
 		params.require(:prototype).permit(:title, :catchcopy, :concept, capture_images_attributes: [:image,:satus])
+	end
+	def prototype_params
+		params.require(:prototype).permit(:title, :catchcopy, :concept, capture_images_attributes: [:image,:satus,:id])
 	end
 end
