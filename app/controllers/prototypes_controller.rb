@@ -1,4 +1,5 @@
 class PrototypesController < ApplicationController
+	before_action :authenticate_user!, except: [:index, :show]
 	def index
 		@prototypes = Prototype.order(id: :ASC).page(params[:page]).per(8)
 	end
@@ -21,6 +22,19 @@ class PrototypesController < ApplicationController
 			flash[:warning] = "画像も設定してね！"
 		end
 
+	end
+	def edit
+		@prototype = Prototype.find(params[:id])
+	end
+	def destroy
+		prototype = Prototype.find(params[:id])
+		if prototype.user_id == current_user.id
+			prototype.destroy
+			redirect_to(root_path)
+		else
+			redirect_to(root_path)
+			flash[:warning] = "ちゃうやろ"
+		end
 	end
 	private
 	def create_params
