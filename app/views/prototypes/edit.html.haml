@@ -12,7 +12,6 @@
               =af.hidden_field :satus, value: "main_image"
           .col-md-12
             %ul.proto-sub-list.list-group
-              / -2.times do
               %li.list-group-item.col-md-4
                 .image-upload
                   = f.fields_for :capture_images, @prototype.capture_images.sub_image.first do |af|
