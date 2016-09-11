@@ -13,7 +13,7 @@
             %span.degree
               ="#{@prototype.user.member},#{@prototype.user.works}"
     .col-md-6.text-right
-      = render partial:'like'
+      = render 'like'
   .row
     .col-md-9
       = image_tag(@prototype.capture_images.main_image.first.image, class: 'img-responsive')
