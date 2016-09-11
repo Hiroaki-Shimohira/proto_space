@@ -5,6 +5,7 @@ class PrototypesController < ApplicationController
 		@prototypes = Prototype.order(id: :ASC).page(params[:page]).per(8)
 	end
 	def show
+		@likes = Like.where(prototype_id: params[:id])
 	end
 	def new
 		@prototype = Prototype.new
@@ -21,7 +22,6 @@ class PrototypesController < ApplicationController
 			redirect_to(new_prototype_path)
 			flash[:warning] = "画像も設定してね！"
 		end
-
 	end
 	def edit
 		@prototype.capture_images.build

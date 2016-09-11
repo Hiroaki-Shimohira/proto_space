@@ -12,12 +12,8 @@
             =link_to "by #{@prototype.user.nickname}", user_path(@prototype.user)
             %span.degree
               ="#{@prototype.user.member},#{@prototype.user.works}"
-
     .col-md-6.text-right
-      %button.btn.btn-default
-        = image_tag("icon_heart.svg")
-        Like
-        %span.num 20
+      = render 'like'
   .row
     .col-md-9
       = image_tag(@prototype.capture_images.main_image.first.image, class: 'img-responsive')
