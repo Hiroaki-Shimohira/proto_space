@@ -4,7 +4,7 @@ class Prototype < ActiveRecord::Base
 	has_many :likes, dependent: :destroy
 	accepts_nested_attributes_for :capture_images
 	validates :title, presence: true
-	def like_count(user_id)
-		likes.find_by(user_id: user_id)
+	def like_user(user)
+		likes.find_by(user_id: user)
 	end
 end
