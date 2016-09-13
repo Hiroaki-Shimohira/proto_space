@@ -79,7 +79,9 @@
       %form.form-inline{role: "form"}
         %h4 Write a comment
         .row
-          .form-group.col-md-10
-            %textarea.form-control{placeholder: "Your comments", rows: "3"}
-          .form-group.col-md-2
-            %button.btn.btn-primary Comment
+          =form_for @comment do |f|
+            / %textarea.form-control{placeholder: "Your comments", rows: "3"}
+            =f.text_area :comment, placehodler: "Your comments", class: "form-control", row: "3"
+            .form-group.col-md-2
+              / .btn.btn-primary
+              =f.submit "comment", class: "btn btn-primary"
