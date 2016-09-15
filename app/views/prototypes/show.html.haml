@@ -76,12 +76,12 @@
               %span.anchorjs-icon
           %p Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
           %p Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-      %form.form-inline{role: "form"}
-        %h4 Write a comment
-        .row
-          =form_for @comment do |f|
-            / %textarea.form-control{placeholder: "Your comments", rows: "3"}
-            =f.text_area :comment, placehodler: "Your comments", class: "form-control", row: "3"
-            .form-group.col-md-2
-              / .btn.btn-primary
-              =f.submit "comment", class: "btn btn-primary"
+      -if user_signed_in?
+        =form_for [ @prototype, @comment ] do |f|
+          %form.form-inline{role: "form"}
+            %h4 Write a comment
+            .row
+              .form-group.col-md-10
+                =f.text_area :comment, placeholder: "Your comments", class: "textform-control", id:"comment_text",rows: "3"
+              .form-group.col-md-2
+                =f.submit "comment", class: "btn btn-primary"
