@@ -1,5 +1,5 @@
 .container.user-new{action: ""}
-  =form_for current_user do |f|
+  = form_for current_user do |f|
     .col-md-8.col-md-offset-2
       %header.row.user-nav.row
         .col-md-12
@@ -10,7 +10,7 @@
             .user-image.col-md-2
               %button.btn.btn-primary Add image
               %input{type: "file"}/
-              =f.file_field :avatar
+              = f.file_field :avatar
           = f.email_field :email, placeholder: "E-Mail"
           = f.password_field :password, autocomplete: "off", placeholder: 'Password'
         .col-md-12
@@ -21,7 +21,7 @@
           %h4 Profile
           .user-user-profile.row
             .user-name.col-md-12
-              =f.text_area :profile, placeholder: "Profile"
+              = f.text_area :profile, placeholder: "Profile"
           %h4 Works
           .user-name_image.row
             .user-name.col-md-12

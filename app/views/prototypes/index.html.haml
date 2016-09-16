@@ -27,13 +27,13 @@
               %li
                 = link_to 'edit', edit_prototype_path(prototype)
         .thumbnail
-          =link_to image_tag(prototype.capture_images.first.image), prototype_path(prototype)
+          = link_to image_tag(prototype.capture_images.first.image), prototype_path(prototype)
           .caption
             %h3
-              =prototype.title
+              = prototype.title
             .proto-meta
               .proto-user
-                =link_to "#{prototype.user.nickname}",user_path(prototype.user)
+                = link_to "#{prototype.user.nickname}",user_path(prototype.user)
               .proto-posted
                 = prototype.created_at.strftime("%Y/%m/%d(#{%w(日 月 火 水 木 金 土)[prototype.created_at.wday]})")
             %ul.proto-tag-list.list-inline
@@ -43,4 +43,4 @@
                 %a{href: "#", class: "btn btn-default"} wireframe
 .text-center
   %ul.pagination
-    =paginate(@prototypes)
+    = paginate(@prototypes)

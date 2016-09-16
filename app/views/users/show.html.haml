@@ -3,12 +3,12 @@
     .media
       .media-left
         %a{href: "#"}
-          =image_tag("#{@user.avatar}",alt: "sample", size: "64x64",class: "media-object")
+          = image_tag("#{@user.avatar}",alt: "sample", size: "64x64",class: "media-object")
       .media-body
         %h4#top-aligned-media.media-heading
-          ="#{@user.nickname}"
+          = "#{@user.nickname}"
           %span.label.label-default.project-number
-            ="#{@user.prototypes.count}"
+            = "#{@user.prototypes.count}"
             %i Projects
         .proto-user
           %span.degree
@@ -39,7 +39,7 @@
           = link_to image_tag(pro.capture_images.main_image.first.image), prototype_path(pro)
           .caption
             %h3
-              ="#{pro.title}"
+              = "#{pro.title}"
             .proto-meta
               .proto-date
                 = pro.created_at.strftime("%Y/%m/%d(#{%w(日 月 火 水 木 金 土)[pro.created_at.wday]})")
@@ -50,4 +50,4 @@
                 %a{href: "#", class: "btn btn-default"} wireframe
 .text-center
   %ul.pagination
-    =paginate(@user_proto)
+    = paginate(@user_proto)
