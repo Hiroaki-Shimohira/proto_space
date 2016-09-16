@@ -1,0 +1,11 @@
+.media
+  .media-left
+    %a{href: "#"}
+      =image_tag( "#{comment.user.avatar}", alt: "sample", size: "64x64", class: "media-object" )
+  .media-body
+    %h4#top-aligned-media.media-heading
+      =comment.user.nickname
+      %a.anchorjs-link{href: "#top-aligned-media"}
+        %span.anchorjs-icon
+    %p
+      =comment.comment
