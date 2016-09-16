@@ -8,4 +8,5 @@ class Prototype < ActiveRecord::Base
 	def like_user(user)
 		likes.find_by(user_id: user)
 	end
+	paginates_per 8
 end
