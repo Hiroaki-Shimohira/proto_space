@@ -8,8 +8,8 @@
         = f.fields_for :capture_images do |af|
           .col-md-12
             .cover-image-upload
-              =af.file_field :image
-              =af.hidden_field :satus, value: "main_image"
+              = af.file_field :image
+              = af.hidden_field :satus, value: "main_image"
           .col-md-12
             %ul.proto-sub-list.list-group
             -2.times do
@@ -26,9 +26,9 @@
                   = af.hidden_field :satus, value: "sub_image"
       .row.proto-description
         .col-md-12
-          =f.text_field :catchcopy, placeholder: "Catch Copy"
+          = f.text_field :catchcopy, placeholder: "Catch Copy"
         .col-md-12
-          =f.text_area :concept, cols: "30", rows: "4", placeholder: "Concept"
+          = f.text_area :concept, cols: "30", rows: "4", placeholder: "Concept"
         .col-md-12
           %h4 Tag List
           .row
@@ -40,4 +40,4 @@
               %input{type: "text", placeholder: "Application"}/
       .row.text-center.proto-btn
         .btn.btn-lg.btn-primary.btn-block
-          =f.submit "Publish"
+          = f.submit "Publish"
