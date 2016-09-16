@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 	before_action :get_user, only: [:show, :edit]
 	def show
 		@user = User.find(params[:id])
-		@user_proto= @user.prototypes.order(id: :ASC).page(params[:page]).per(8)
+		@user_proto = @user.prototypes.order(id: :ASC).page(params[:page]).per(8)
 	end
 	def edit
 	end
