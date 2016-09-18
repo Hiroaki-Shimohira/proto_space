@@ -10,7 +10,6 @@
           = link_to 'Popular PROTO', prototypes_popular_index_path
         %li{role: "presentation"}
           = link_to 'Newest PROTO', root_path
-      / %button{type: "button", class: "btn btn-default col-lg-1"} View Tags
       =link_to "Viwe Tags", tags_path, class: "btn btn-default col-lg-1"
 
 .container.proto-list
@@ -38,10 +37,9 @@
               .proto-posted
                 = prototype.created_at.strftime("%Y/%m/%d(#{%w(日 月 火 水 木 金 土)[prototype.created_at.wday]})")
             %ul.proto-tag-list.list-inline
-              %li
-                %a{href: "#", class: "btn btn-default"} iPad
-              %li
-                %a{href: "#", class: "btn btn-default"} wireframe
+              - prototype.tags.each do |tag|
+                %li
+                  = link_to "#{tag.name}", tag_path(tag.id), class: "btn btn-default"
 .text-center
   %ul.pagination
     = paginate(@prototypes)
