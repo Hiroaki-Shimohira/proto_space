@@ -10,7 +10,8 @@
           = link_to 'Popular PROTO', prototypes_popular_index_path
         %li{role: "presentation"}
           = link_to 'Newest PROTO', root_path
-      %button{type: "button", class: "btn btn-default col-lg-1"} View Tags
+      / %button{type: "button", class: "btn btn-default col-lg-1"} View Tags
+      =link_to "Viwe Tags", tags_path, class: "btn btn-default col-lg-1"
 
 .container.proto-list
   .row

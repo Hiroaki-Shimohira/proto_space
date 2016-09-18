@@ -14,9 +14,15 @@ class PrototypesController < ApplicationController
 		@prototype.capture_images.build
 	end
 	def create
+		binding.pry
 
 
 		@prototype = current_user.prototypes.new(prototype_params)
+
+		# params.require(:prototype)[:tag_list].each do |tag|
+		# 	@prototype.tag_list.add(tag)
+		# end
+		@prototype.tag_list.add(params.require(:prototype)[:tag_list])
 		if @prototype.save(prototype_params)
 			redirect_to(root_path)
 			flash[:success] = "いいね！"
@@ -46,6 +52,6 @@ class PrototypesController < ApplicationController
 	end
 	private
 	def prototype_params
-		params.require(:prototype).permit(:title, :catchcopy, :concept, capture_images_attributes: [:image,:satus,:id], :tag_list)
+		params.require(:prototype).permit(:title, :catchcopy, :concept, capture_images_attributes: [:image,:satus,:id])
 	end
 end

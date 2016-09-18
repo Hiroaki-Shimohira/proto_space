@@ -10,4 +10,5 @@ class Prototype < ActiveRecord::Base
 	end
 	paginates_per 8
 	acts_as_taggable
+	serialize :tag_list
 end
