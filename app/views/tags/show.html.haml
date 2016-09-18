@@ -17,6 +17,7 @@
     .tag-header
       %span # web
     .col-sm-4.col-md-3.proto-content
+      - @prototypes.each do |prototype|
       .thumbnail
         %a{href: "/prototypes/1"}
           %img{alt: " ", src: "sample.png"}/
