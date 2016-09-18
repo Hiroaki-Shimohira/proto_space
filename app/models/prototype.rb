@@ -9,4 +9,5 @@ class Prototype < ActiveRecord::Base
 		likes.find_by(user_id: user)
 	end
 	paginates_per 8
+	acts_as_taggable
 end
