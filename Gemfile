@@ -52,4 +52,5 @@ gem 'pry-rails'
 gem 'carrierwave'
 gem 'kaminari'
 gem 'kaminari-bootstrap', '~> 3.0.1'
+gem 'acts-as-taggable-on'
 

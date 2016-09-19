@@ -17,6 +17,9 @@ class PrototypesController < ApplicationController
 
 
 		@prototype = current_user.prototypes.new(prototype_params)
+
+		@prototype.tag_list.add(prototype_tags_params)
+
 		if @prototype.save(prototype_params)
 			redirect_to(root_path)
 			flash[:success] = "いいね！"
@@ -47,5 +50,8 @@ class PrototypesController < ApplicationController
 	private
 	def prototype_params
 		params.require(:prototype).permit(:title, :catchcopy, :concept, capture_images_attributes: [:image,:satus,:id])
+	end
+	def prototype_tags_params
+		params.require(:prototype)[:tag_list]
 	end
 end
