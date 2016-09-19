@@ -1,7 +1,6 @@
 .jumbotron
   .container.text-center
     = image_tag("header_logo.png", alt: "PROTO TYPE - SHARE THE PROTOTYPE", height: "73px")
-
 .filter-nav
   .container
     .row
@@ -11,10 +10,9 @@
         %li{role: "presentation"}
           = link_to 'Newest PROTO', root_path
       =link_to "Viwe Tags", tags_path, class: "btn btn-default col-lg-1"
-
 .container.proto-list
   .row
-    = render 'prototype'
+    = render @prototypes
 .text-center
   %ul.pagination
     = paginate(@prototypes)
