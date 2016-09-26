@@ -32,6 +32,7 @@ class PrototypesController < ApplicationController
 		@prototype.capture_images.build
 	end
 	def update
+		@prototype.tag_list.add(prototype_tags_params)
 		@prototype.update(prototype_params)
     	redirect_to(root_path)
 	end
