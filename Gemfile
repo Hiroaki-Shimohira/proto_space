@@ -17,19 +17,19 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 group :development, :test do
-  gem 'web-console', '~> 2.0'
   gem 'spring'
   gem 'byebug'
   gem "rspec-rails"
   gem "factory_girl_rails"
   gem "faker"
-end
-
-group :test do
   gem "capybara"
   gem "database_cleaner"
   gem "launchy"
   gem "poltergeist"
+end
+
+group :development do
+  gem 'web-console', '~> 2.0'
 end
 gem 'haml-rails'
 gem 'erb2haml'
