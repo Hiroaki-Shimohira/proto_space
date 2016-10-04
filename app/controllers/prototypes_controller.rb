@@ -14,8 +14,7 @@ class PrototypesController < ApplicationController
 		@prototype.capture_images.build
 	end
 	def create
-
-
+		binding.pry
 		@prototype = current_user.prototypes.new(prototype_params)
 
 		@prototype.tag_list.add(prototype_tags_params)
