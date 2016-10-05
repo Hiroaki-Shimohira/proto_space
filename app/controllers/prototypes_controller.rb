@@ -2,7 +2,7 @@ class PrototypesController < ApplicationController
 	before_action :authenticate_user!, except: [:index, :show]
 	before_action :create_prototype_instance, only: [:show, :edit, :update, :destroy]
 	def index
-		@prototypes = Prototype.order(updated_at: :ASC).page(params[:page])
+		@prototypes = Prototype.order(updated_at: :DESC).page(params[:page])
 	end
 	def show
 		@likes = Like.where(prototype_id: params[:id])
