@@ -16,12 +16,12 @@
       = render 'like'
   .row
     .col-md-9
-      = image_tag(@prototype.capture_images.main_image.first.image, class: 'img-responsive')
+      = image_tag(@prototype.capture_images.main_image.first.url, class: 'img-responsive')
     .col-md-3
       %ul.proto-sub-list.list-group
         -3.times do
           %li.list-group-item
-            = image_tag(@prototype.capture_images.sub_image.first.image, class: 'img-responsive')
+            = image_tag(@prototype.capture_images.sub_image.first.url, class: 'img-responsive')
   .row.proto-description
     .col-md-3
       %h4 Catch Copy

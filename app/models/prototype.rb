@@ -3,7 +3,7 @@ class Prototype < ActiveRecord::Base
 	has_many :capture_images
 	has_many :likes, dependent: :destroy
 	has_many :comments
-	accepts_nested_attributes_for :capture_images, reject_if: proc { |attributes| attributes["0"].blank? }
+	accepts_nested_attributes_for :capture_images
 	validates :title, presence: true
 	def like_user(user)
 		likes.find_by(user_id: user)
@@ -12,7 +12,7 @@ class Prototype < ActiveRecord::Base
 		if instance.nil?
 			""
 		else
-			instance.image
+			instance.url
 		end
 	end
 	paginates_per 8
