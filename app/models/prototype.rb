@@ -8,6 +8,9 @@ class Prototype < ActiveRecord::Base
 	def like_user(user)
 		likes.find_by(user_id: user)
 	end
+	def image_view(instance)
+		instance.nil? ? "" : instance.url
+	end
 	paginates_per 8
 	acts_as_taggable
 	serialize :tag_list
