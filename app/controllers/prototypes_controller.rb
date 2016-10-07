@@ -14,18 +14,14 @@ class PrototypesController < ApplicationController
 		@prototype.capture_images.build
 	end
 	def create
-
-
 		@prototype = current_user.prototypes.new(prototype_params)
-
 		@prototype.tag_list.add(prototype_tags_params)
-
 		if @prototype.save(prototype_params)
 			redirect_to(root_path)
 			flash[:success] = "いいね！"
 		else
-			redirect_to(new_prototype_path)
-			flash[:warning] = "画像も設定してね！"
+		    redirect_to(new_prototype_path)
+			flash[:warning] = "メイン画像も設定してね！"
 		end
 	end
 	def edit
@@ -50,7 +46,7 @@ class PrototypesController < ApplicationController
 	end
 	private
 	def prototype_params
-		params.require(:prototype).permit(:title, :catchcopy, :concept, capture_images_attributes: [:image,:satus,:id])
+		params.require(:prototype).permit(:title, :catchcopy, :concept, capture_images_attributes: [:url,:satus,:id])
 	end
 	def prototype_tags_params
 		params.require(:prototype)[:tag_list]
