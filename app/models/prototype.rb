@@ -5,7 +5,6 @@ class Prototype < ActiveRecord::Base
 	has_many :comments
 	accepts_nested_attributes_for :capture_images
 	validates :title, presence: true
-	# validates :capture_images_attributes, presence: true
 	def like_user(user)
 		likes.find_by(user_id: user)
 	end

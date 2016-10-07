@@ -5,6 +5,6 @@ class CaptureImage < ActiveRecord::Base
 	validates :url, presence: true, if: :main_image?
 
 	def main_image?
-		self.satus == "main_image"
+		satus == "main_image"
 	end
 end
