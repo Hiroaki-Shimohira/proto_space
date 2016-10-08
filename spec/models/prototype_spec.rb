@@ -49,11 +49,4 @@ describe Prototype do
 			end
 		end
 	end
-	describe "#reject_sub_iamges(attributed)" do
-		it "doesn't save record with a nil content" do
-			prototype = build(:prototype)
-			prototype.capture.build(capture_image)
-			binding.pry
-		end
-	end
 end
