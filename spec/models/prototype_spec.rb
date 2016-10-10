@@ -29,7 +29,7 @@ describe Prototype do
 			it "belongs_to user" do
 				user = create(:user)
 				prototype = create(:prototype, user: user)
-				expect(user.prototypes.first).to eq prototype
+				expect(prototype.user).to eq user
 			end
 		end
 	end
