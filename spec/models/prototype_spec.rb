@@ -27,9 +27,10 @@ describe Prototype do
 		end
 		describe "with user" do
 			it "belongs_to user" do
-				prototypes = create_list(:prototype, 3)
-				user = build(:user, prototypes: prototypes)
-				expect(user.prototypes).to eq prototypes
+				user = create(:user)
+				prototype = create(:prototype, user: user)
+				binding.pry
+				expect(user.prototypes.first).to eq prototype
 			end
 		end
 	end
