@@ -1,7 +1,5 @@
 FactoryGirl.define do
-	factory :comment do
-		comment "sssssss"
+	factory :like do
 		association :prototype
 	end
 end
-
