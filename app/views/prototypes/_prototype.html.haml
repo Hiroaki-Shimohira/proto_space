@@ -10,7 +10,7 @@
         %li
           = link_to 'edit', edit_prototype_path(prototype)
   .thumbnail
-    = link_to image_tag(prototype.capture_images.first.url), prototype_path(prototype)
+    = link_to image_tag(prototype.capture_images.first.image_url), prototype_path(prototype)
     .caption
       %h3
         = prototype.title

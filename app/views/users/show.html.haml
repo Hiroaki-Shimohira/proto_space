@@ -36,7 +36,7 @@
             %li
               = link_to 'edit', edit_prototype_path(pro)
         .thumbnail
-          = link_to image_tag(pro.capture_images.main_image.first.url), prototype_path(pro)
+          = link_to image_tag(pro.capture_images.main_image.first.image_url), prototype_path(pro)
           .caption
             %h3
               = "#{pro.title}"
