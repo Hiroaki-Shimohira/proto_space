@@ -29,7 +29,6 @@ describe Prototype do
 			it "belongs_to user" do
 				user = create(:user)
 				prototype = create(:prototype, user: user)
-				binding.pry
 				expect(user.prototypes.first).to eq prototype
 			end
 		end
