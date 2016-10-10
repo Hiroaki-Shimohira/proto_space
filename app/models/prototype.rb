@@ -9,7 +9,7 @@ class Prototype < ActiveRecord::Base
 		likes.find_by(user_id: user)
 	end
 	def image_view(instance)
-		instance.nil? ? "" : instance.url
+		instance.nil? ? "" : instance.image_url
 	end
 	paginates_per 8
 	acts_as_taggable
