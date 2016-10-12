@@ -20,8 +20,11 @@ Capybara.javascript_driver = :poltergeist
 # of increasing the boot-up time by auto-requiring all files in the support
 # directory. Alternatively, in the individual `*_spec.rb` files, manually
 # require only the support files necessary.
+require 'devise'
 RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
+  config.include Devise::Test::ControllerHelpers, type: :controller
+  config.include Devise::Test::ControllerHelpers, type: :view
 end
 # Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 

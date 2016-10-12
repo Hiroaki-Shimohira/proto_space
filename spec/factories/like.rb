@@ -1,5 +1,5 @@
 FactoryGirl.define do
-	factory :like do
-		association :prototype
-	end
+  factory :like do
+    association :prototype
+  end
 end
