@@ -10,8 +10,5 @@ CarrierWave.configure do |config|
         config.storage = :fog
         config.fog_directory  = 'image-upload-shimo'
         config.asset_host = 'https://s3.amazonaws.com/image-upload-shimo'
-    when 'test'
-        config.storage = :file
-        config.fog_directory = 'public/uploads/capture_image'
     end
 end
