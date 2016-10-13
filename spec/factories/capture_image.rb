@@ -9,6 +9,7 @@ FactoryGirl.define do
 		trait :image do
 			image_url { fixture_file_upload("spec/fixtures/img/スクリーンショット 2016-10-10 17.45.24.jpg", 'image/jpg') }
 		end
+
 		trait :image_blank do
 			image_url ""
 		end

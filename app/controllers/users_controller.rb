@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
 	before_action :get_user, only: [:show, :edit]
+	before_action :authenticate_user!, only: [:edit, :update]
 	def show
 		@user = User.find(params[:id])
 		@user_proto = @user.prototypes.order(id: :ASC).page(params[:page]).per(8)
