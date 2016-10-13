@@ -16,6 +16,5 @@ FactoryGirl.define do
     prototype_id ""
 
     association :prototype
-    prototype nil
   end
 end

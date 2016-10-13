@@ -1,13 +1,8 @@
 require 'rails_helper'
 feature 'User' do
-  # given(:user) {build(:user)}
-  # given(:login_user) {create(:user)}
-  # given(:prototype) { create(:prototype_with_capture_image) }
-  # # given(:capture_image) { create(:capture_image, :image, :main, prototype_id: prototype) }
-  # # given(:prototype_with_capture_image)
-  given(:login_user) { create(:user) }
   given(:user) { build(:user)}
   given(:prototype) { build(:prototype) }
+  given(:login_user) { create(:user) }
   scenario "user sign_up" do
     visit root_path
     click_link 'Get Started'
