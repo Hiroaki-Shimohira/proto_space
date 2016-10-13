@@ -20,23 +20,21 @@ describe PrototypesController do
     end
 
     describe 'GET #show'do
-      before do
-        @prototype = create(:prototype)
-      end
+      let(:prototype){create(:prototype)}
       it "assigns the requested contact to @prototype" do
-        get :show, id: @prototype
-        expect(assigns(:prototype)).to eq @prototype
+        get :show, id: prototype
+        expect(assigns(:prototype)).to eq prototype
       end
       it "assigns the requested contact to @comment" do
-        get :show, id: @prototype
+        get :show, id: prototype
         expect(assigns(:comment)).to be_a_new(Comment)
       end
       it "assigns likes associated with prototype to @likes" do
-        get :show, id: @prototype
-        expect(assigns(:likes)). to eq @prototype.likes
+        get :show, id: prototype
+        expect(assigns(:likes)). to eq prototype.likes
       end
       it "renders the :show template" do
-        get :show, id: @prototype
+        get :show, id: prototype
         expect(response).to render_template :show
       end
     end
@@ -50,8 +48,8 @@ describe PrototypesController do
 
     describe 'POST #create' do
       describe 'with valid attributes' do
+        let(:prototype){build(:prototype)}
         it 'saves the new prototype in the database' do
-          prototype = build(:prototype)
           post :create, prototype: attributes_for(:prototype)
           expect{prototype.save}.to change{ Prototype.count }.by(1)
         end
@@ -62,76 +60,67 @@ describe PrototypesController do
         end
       end
       describe 'without valid attributes' do
+        let(:prototype){build(:prototype, title:"")}
         it 'does not save prototype' do
-          prototype = build(:prototype , title:"")
           post :create, prototype: attributes_for(:prototype)
           expect{prototype.save}.not_to change{ Prototype.count }
         end
         it 'redirect_to new_prototype_path' do
-          prototype = build(:prototype , title:"")
           post :create, prototype: attributes_for(:prototype, title: "")
           expect(response).to redirect_to new_prototype_path
         end
       end
     end
     describe 'GET #edit' do
-      before do
-        @prototype = create(:prototype)
-      end
+      let(:prototype){create(:prototype)}
       it 'renders the :edit template' do
-        get :edit, id: @prototype
+        get :edit, id: prototype
         expect(response).to render_template :edit
       end
       it 'assigns the requested contact to @prototype' do
-        get :edit , id: @prototype
-        expect(assigns(:prototype)).to eq @prototype
+        get :edit , id: prototype
+        expect(assigns(:prototype)).to eq prototype
       end
     end
     describe 'PATCH #update' do
-      before do
-        @prototype = create(:prototype)
-      end
+      let(:prototype){create(:prototype)}
       describe "with valid attributes" do
         it 'saves the edited prototype in the database' do
-          patch :update, id: @prototype, prototype: attributes_for(:prototype, title: "vvv")
-          @prototype.reload
-          expect(@prototype.title).to eq("vvv")
+          patch :update, id: prototype, prototype: attributes_for(:prototype, title: "vvv")
+          prototype.reload
+          expect(prototype.title).to eq("vvv")
         end
         it "redirect to root_path after post" do
-          patch :update, id: @prototype, prototype: attributes_for(:prototype)
+          patch :update, id: prototype, prototype: attributes_for(:prototype)
           expect(response).to redirect_to root_path
         end
       end
       describe "without valid attributes" do
         it 'does not saves the edited prototype in the database' do
-          patch :update, id: @prototype, prototype: attributes_for(:prototype, title: "")
-          @prototype.reload
-          expect(@prototype.title).to eq(@prototype.title)
+          patch :update, id: prototype, prototype: attributes_for(:prototype, title: "")
+          prototype.reload
+          expect(prototype.title).to eq(prototype.title)
         end
       end
     end
     describe 'DELETE #destroy' do
-      before do
-        @prototype = create(:prototype)
-      end
+      let(:prototype){create(:prototype)}
       it 'assigns the requested contact to @prototype' do
-        delete :destroy , id: @prototype
-        expect(assigns(:prototype)).to eq @prototype
+        delete :destroy , id: prototype
+        expect(assigns(:prototype)).to eq prototype
       end
       it 'deletes the prototype' do
-        delete :destroy, id: @prototype
-        expect{@prototype.destroy}.to change{ Prototype.count }.by(-1)
+        delete :destroy, id: prototype
+        expect{prototype.destroy}.to change{ Prototype.count }.by(-1)
       end
       it "redirect to index after destroy" do
-        delete :destroy, id: @prototype
+        delete :destroy, id: prototype
         expect(response).to redirect_to root_path
       end
     end
   end
   describe 'whihout user log in' do
-    before do
-      @prototype = create(:prototype)
-    end
+    let(:prototype){create(:prototype)}
     describe 'GET #new' do
       it 'redirects sign_in page' do
         get :new
@@ -148,7 +137,7 @@ describe PrototypesController do
 
     describe 'GET #edit' do
       it 'redirects sign_in page' do
-        get :edit, id: @prototype
+        get :edit, id: prototype
         expect(response).to redirect_to new_user_session_path
       end
     end
@@ -162,7 +151,7 @@ describe PrototypesController do
 
     describe 'DELETE #destroy' do
       it 'redirects sign_in page' do
-        delete :destroy, id: @prototype
+        delete :destroy, id: prototype
         expect(response).to redirect_to new_user_session_path
       end
     end
