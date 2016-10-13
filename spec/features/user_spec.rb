@@ -31,5 +31,4 @@ feature 'User' do
     click_button 'publish'
     expect(current_path).to eq root_path
   end
-
 end
